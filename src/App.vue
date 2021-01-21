@@ -6,14 +6,19 @@
     <h2>产品</h2>
     <ProductList />
     <hr />
+    <cartlist/>
+    <hr />
   </div>
 </template>
 
 <script>
 import ProductList from "./components/ProductList";
+import cartlist from "./components/cartlist";
+
 export default {
   name: "App",
-  components: { ProductList }
+  components: { ProductList , cartlist },
+  
 };
 </script>
 

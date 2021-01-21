@@ -1,9 +1,9 @@
 <template>
   <ul>
     <li v-for="product in products" :key="product.id">
-      {{ product.title }} - {{ product.price }}
+      {{ product.title }} - {{ product.price }} 剩余数量： {{product.inventory}}
       <br />
-      <button :disabled="!product.inventory" @click="addProfuctToCard(product)">
+      <button :disabled="!product.inventory" @click="addProfuctToCart(product)">
         加入购物车
       </button>
     </li>
@@ -18,8 +18,11 @@ export default {
     }
   },
   methods: {
-    addProfuctToCard(product) {
-      this.$store.dispatch("cart/addProductToCard", product);
+    addProfuctToCart(product) {
+        this.$store.dispatch("cart/addProductToCart", product);
+        this.$store.dispatch("products/deleteProductInventory2", product.id);
+
+
     }
   },
 
